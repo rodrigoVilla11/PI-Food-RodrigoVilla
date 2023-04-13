@@ -29,8 +29,13 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       instructions: {
-        type: DataTypes.TEXT,
+        type: DataTypes.JSON,
         allowNull: false,
+      },
+      createdByClient: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       },
     },
     {

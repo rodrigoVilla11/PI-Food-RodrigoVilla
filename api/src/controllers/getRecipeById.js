@@ -10,8 +10,19 @@ const getRecipeById = async (req, res) => {
       const apiUrl = await axios.get(
         `https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${api_key}`
       );
-      const { id, title, image, summary, healthScore, instructions, diets } =
-        apiUrl.data;
+      const {
+        id,
+        title,
+        image,
+        summary,
+        healthScore,
+        instructions,
+        vegetarian,
+        diets,
+      } = apiUrl.data;
+      if (vegetarian) {
+        diets.push("vegetarian");
+      }
       res.status(200).json({
         id,
         title,

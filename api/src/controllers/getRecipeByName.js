@@ -22,16 +22,22 @@ const getRecipeByName = async (req, res) => {
             summary,
             healthScore,
             instructions,
+            vegetarian,
+            lowFodmap,
             diets,
-          }) => ({
-            id,
-            title,
-            image,
-            summary,
-            healthScore,
-            instructions,
-            diets,
-          })
+          }) => {
+            if (vegetarian) diets.push("vegetarian");
+            if (lowFodmap) diets.push("lowFodmap");
+            return {
+              id,
+              title,
+              image,
+              summary,
+              healthScore,
+              instructions,
+              diets,
+            };
+          }
         );
       const recipe = await Recipe.findAll({
         where: { title: { [Op.iLike]: `%${name}%` } },
@@ -41,7 +47,38 @@ const getRecipeByName = async (req, res) => {
         },
       });
       const allRecipes = await filteredResults.concat(recipe);
+      if (allRecipes.length == 0)
+        res.status(400).json({ error: "recipe not found" });
       res.status(200).json(allRecipes);
+    } else {
+      const preview = await axios.get(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api_key}&addRecipeInformation=true&number=100`
+      );
+      let previewResults = await preview.data.results.map(
+        ({
+          id,
+          title,
+          image,
+          summary,
+          healthScore,
+          instructions,
+          vegetarian,
+          diets,
+        }) => {
+          if (vegetarian) diets.push("vegetarian");
+
+          return {
+            id,
+            title,
+            image,
+            summary,
+            healthScore,
+            instructions,
+            diets,
+          };
+        }
+      );
+      res.status(200).send(previewResults);
     }
   } catch (error) {
     res.status(404).json({ error: error.message });
