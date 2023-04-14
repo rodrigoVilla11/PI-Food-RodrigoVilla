@@ -39,14 +39,14 @@ const getRecipeByName = async (req, res) => {
             };
           }
         );
-      const recipe = await Recipe.findAll({
+      const recipesDb = await Recipe.findAll({
         where: { title: { [Op.iLike]: `%${name}%` } },
         include: {
           model: Diet,
           attributes: ["name"],
         },
       });
-      const allRecipes = await filteredResults.concat(recipe);
+      const allRecipes = await filteredResults.concat(recipesDb);
       if (allRecipes.length == 0)
         res.status(400).json({ error: "recipe not found" });
       res.status(200).json(allRecipes);
@@ -78,7 +78,14 @@ const getRecipeByName = async (req, res) => {
           };
         }
       );
-      res.status(200).send(previewResults);
+      const recipesDb = await Recipe.findAll({
+        include: {
+          model: Diet,
+          attributes: ["name"],
+        },
+      });
+      const allRecipes = await previewResults.concat(recipesDb);
+      res.status(200).send(allRecipes);
     }
   } catch (error) {
     res.status(404).json({ error: error.message });

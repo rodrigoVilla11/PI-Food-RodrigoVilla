@@ -4,6 +4,8 @@ export const GET_RECIPES = "GET_RECIPES";
 export const GET_DETAIL = "GET_DETAIL";
 export const FILTER_BY_DIET = "FILTER_BY_DIET";
 export const FILTER_BY_CREATOR = "FILTER_BY_CREATOR";
+export const ORDER_BY_NAME = "ORDER_BY_NAME";
+export const ORDER_BY_HEALTSCORE = "ORDER_BY_HEALTSCORE";
 
 export function getRecipes() {
   return async function (dispatch) {
@@ -35,6 +37,20 @@ export function filterRecipesByDiets(payload) {
 export function filterRecipesByCreator(payload) {
   return {
     type: FILTER_BY_CREATOR,
+    payload,
+  };
+}
+
+export function orderByName(payload) {
+  return {
+    type: ORDER_BY_NAME,
+    payload,
+  };
+}
+
+export function orderByHealtScore(payload) {
+  return {
+    type: ORDER_BY_HEALTSCORE,
     payload,
   };
 }
