@@ -19,6 +19,7 @@ const Home = () =>{
   const [order, setOrder] = useState('')
 
   const paginado = (pageNumber) =>{
+    if(pageNumber !== currentPage)
     setCurrentPage(pageNumber);
   }
   const handleOrderByName = (e) => {
@@ -34,7 +35,7 @@ const Home = () =>{
     setCurrentPage(1)
     setOrder('Ordered')
   }
-
+  //EL PROBLEMA ES CUANDO ESTOY EN LA PAGE 1 Y ORDENO, NO ME ACTUALIZA, PERO SI CAMBIO LA PAGE Y VUELVO, SE RE-RENDERIZA TODO PERFECTO
   useEffect(()=>{
     dispatch(getRecipes())
   },[dispatch])
@@ -43,6 +44,7 @@ const Home = () =>{
     e.preventDefault()
     dispatch(getRecipes());
   }
+  
 return(
     <div>
       <h1>HOME</h1>
@@ -51,13 +53,13 @@ return(
       <div>
       <span> Order By Name: </span>
           <select onChange={e=>handleOrderByName(e)}>
-          <option value=""></option>
+          <option value="All"></option>
             <option value="ascendente">Ascendente</option>
             <option value="descendente">Descendente</option>
           </select>
           <span> Order By Health Score: </span>
           <select onChange={e=>handleOrderByHS(e)}>
-            <option value=""></option>
+            <option value="All"></option>
             <option value="ascendente">Ascendente</option>
             <option value="descendente">Descendente</option>
           </select>

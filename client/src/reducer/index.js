@@ -5,6 +5,8 @@ import {
   FILTER_BY_CREATOR,
   ORDER_BY_NAME,
   ORDER_BY_HEALTSCORE,
+  GET_RECIPES_BY_NAME,
+  GET_DIETS,
 } from "../actions";
 
 export const initialState = {
@@ -13,6 +15,7 @@ export const initialState = {
   filteredRecipes: [],
   selectedDiet: "All",
   orderRecipes: [],
+  diets: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -26,10 +29,11 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_DETAIL:
-      return {
-        ...state,
-        recipe: action.payload,
-      };
+      return { ...state, recipe: action.payload };
+
+    case GET_RECIPES_BY_NAME:
+      return { ...state, recipe: action.payload };
+
     case FILTER_BY_DIET:
       const allRecipes = [...state.recipes];
       const filteredRecipes =
@@ -73,29 +77,46 @@ const rootReducer = (state = initialState, action) => {
               }
               return 0;
             });
-      return { ...state, recipes: orderRecipesByName };
+
+      console.log(orderRecipesByName);
+      return {
+        ...state,
+        orderRecipes:
+          action.payload === "All" ? state.recipes : orderRecipesByName,
+      };
     case ORDER_BY_HEALTSCORE:
       let orderRecipesByHS =
         action.payload === "ascendente"
           ? state.filteredRecipes.sort((a, b) => {
-              if (a.healtScore > b.healtScore) {
+              if (a.healthScore > b.healthScore) {
                 return 1;
               }
-              if (b.healtScore > a.healtScore) {
+              if (b.healthScore > a.healthScore) {
                 return -1;
               }
               return 0;
             })
           : state.filteredRecipes.sort((a, b) => {
-              if (a.healtScore > b.healtScore) {
+              if (a.healthScore > b.healthScore) {
                 return -1;
               }
-              if (b.healtScore > a.healtScore) {
+              if (b.healthScore > a.healthScore) {
                 return 1;
               }
               return 0;
             });
-      return { ...state, orderRecipes: orderRecipesByHS };
+
+      console.log(orderRecipesByHS);
+      return {
+        ...state,
+        orderRecipes:
+          action.payload === "All" ? state.recipes : orderRecipesByHS,
+      };
+    case GET_DIETS:
+      return {
+        ...state,
+        diets: action.payload,
+      };
     default:
       return state;
   }
