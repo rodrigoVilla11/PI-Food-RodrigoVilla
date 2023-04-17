@@ -33,7 +33,7 @@ export function getRecipesByName(name) {
   return async function (dispatch) {
     try {
       const response = await axios.get(
-        `http://localhost:3001/recipes?name=${name}`
+        `http://localhost:3001/recipes?name=` + name
       );
       return dispatch({
         type: GET_RECIPES_BY_NAME,

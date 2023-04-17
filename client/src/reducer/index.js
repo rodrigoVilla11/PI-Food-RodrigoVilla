@@ -32,7 +32,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, recipe: action.payload };
 
     case GET_RECIPES_BY_NAME:
-      return { ...state, recipe: action.payload };
+      return { ...state, filteredRecipes: action.payload };
 
     case FILTER_BY_DIET:
       const allRecipes = [...state.recipes];

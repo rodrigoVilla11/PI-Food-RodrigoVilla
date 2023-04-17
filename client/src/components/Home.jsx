@@ -24,16 +24,16 @@ const Home = () =>{
   }
   const handleOrderByName = (e) => {
     e.preventDefault()
-    dispatch(orderByName(e.target.value ))
-    setCurrentPage(1)
+    dispatch(orderByName(e.target.value))
     setOrder('Ordered')
+    setCurrentPage(1)
   }
 
   const handleOrderByHS = (e) => {
     e.preventDefault()
     dispatch(orderByHealtScore(e.target.value))
-    setCurrentPage(1)
     setOrder('Ordered')
+    setCurrentPage(1)
   }
   //EL PROBLEMA ES CUANDO ESTOY EN LA PAGE 1 Y ORDENO, NO ME ACTUALIZA, PERO SI CAMBIO LA PAGE Y VUELVO, SE RE-RENDERIZA TODO PERFECTO
   useEffect(()=>{
@@ -68,12 +68,12 @@ return(
       <button onClick={e=>{handleClick(e)}}>Volver a cargar</button>
       <Paginado recipesPerPage={recipesPerPage} recipes={recipes.length} paginado={paginado}/>
       <div>{currentRecipes.map(({id,title, image, diets})=> {
-        return <Link to={`/detail/${id}`} style={{textDecoration: 'none', color: 'black'}}> 
-        <div>
+        return <Link key={id} to={`/detail/${id}`} style={{textDecoration: 'none', color: 'black'} }> 
+        <div >
         <div>
         <h2>{title}</h2>
         <img src={image} alt={title} />
-        <h5>{diets}</h5>
+        <h5>{diets.map(el => el.name)}</h5>
         </div>
         </div></Link>} )}</div>
       

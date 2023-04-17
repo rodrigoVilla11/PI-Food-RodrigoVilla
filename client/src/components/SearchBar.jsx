@@ -19,7 +19,7 @@ const SearchBar = () =>{
     return(
         <div>
             <input type="search" placeholder='Recipe...' onChange={e=>handleSearchName(e)}/>
-            <button type='submit' onChange={e=>handleSubmit(e)}>Search Recipe</button>
+            <button type='submit' onClick={e=>handleSubmit(e)}>Search Recipe</button>
         </div>
     )
     }
