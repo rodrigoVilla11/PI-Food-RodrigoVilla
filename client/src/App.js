@@ -1,9 +1,9 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import Detail from "./components/Detail";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/LandingPage/LandingPage";
 import Form from "./components/Form";
 
 function App() {

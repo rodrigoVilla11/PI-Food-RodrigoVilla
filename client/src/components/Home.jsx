@@ -41,7 +41,7 @@ const Home = () =>{
   },[dispatch])
 
   const handleClick = (e) =>{
-    e.preventDefault()
+    e.preventDefault() 
     dispatch(getRecipes());
   }
   
