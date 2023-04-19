@@ -8,6 +8,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_HEALTSCORE = "ORDER_BY_HEALTSCORE";
 export const GET_RECIPES_BY_NAME = "GET_RECIPES_BY_NAME";
 export const GET_DIETS = "GET_DIETS";
+export const GET_EXAMPLES = "GET_EXAMPLES";
 
 export function getRecipes() {
   return async function (dispatch) {
@@ -86,5 +87,17 @@ export function postRecipe(payload) {
   return async function (dispatch) {
     const response = await axios.post("http://localhost:3001/recipes", payload);
     return response;
+  };
+}
+
+export function getExamples() {
+  return async function (dispatch) {
+    const response = await axios.get(
+      "http://localhost:3001/examplesLandingPage"
+    );
+    return dispatch({
+      type: GET_EXAMPLES,
+      payload: response.data,
+    });
   };
 }

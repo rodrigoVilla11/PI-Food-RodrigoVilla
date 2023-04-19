@@ -2,13 +2,13 @@ import {Link} from 'react-router-dom'
 import styles from './LandingPage.module.css'
 import {useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { getRecipes } from "../../actions";
+import { getExamples } from "../../actions";
 
 const LandingPage = () =>{
   const dispatch = useDispatch()
-  const recipes = useSelector((state) => state.filteredRecipes)
+  const recipes = useSelector((state) => state.recipes)
   useEffect(()=>{
-    dispatch(getRecipes())
+    dispatch(getExamples())
   },[dispatch])
   
     return(

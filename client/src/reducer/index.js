@@ -7,6 +7,7 @@ import {
   ORDER_BY_HEALTSCORE,
   GET_RECIPES_BY_NAME,
   GET_DIETS,
+  GET_EXAMPLES,
 } from "../actions";
 
 export const initialState = {
@@ -117,6 +118,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         diets: action.payload,
       };
+    case GET_EXAMPLES:
+      return { ...state, recipes: action.payload };
     default:
       return state;
   }

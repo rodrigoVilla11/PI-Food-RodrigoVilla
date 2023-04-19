@@ -4,6 +4,7 @@ const getRecipeById = require("../controllers/getRecipeById");
 const getRecipeByName = require("../controllers/getRecipeByName");
 const postRecipe = require("../controllers/postRecipe");
 const getDiets = require("../controllers/getDiets");
+const getRecipesForLanding = require("../controllers/getRecipeForLandingPage");
 // Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
@@ -18,5 +19,7 @@ router.get("/recipes", getRecipeByName);
 router.post("/recipes", postRecipe);
 
 router.get("/diets", getDiets);
+
+router.get("/examplesLandingPage", getRecipesForLanding);
 
 module.exports = router;
