@@ -1,4 +1,4 @@
-import { filterRecipesByDiets,filterRecipesByCreator } from "../actions";
+import { filterRecipesByDiets,filterRecipesByCreator } from "../../actions";
 import {useDispatch} from 'react-redux'
 
 const FiltersCards = () =>{

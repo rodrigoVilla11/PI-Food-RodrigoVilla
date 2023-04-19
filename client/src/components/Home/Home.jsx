@@ -1,6 +1,6 @@
 import SearchBar from './SearchBar'
 import FiltersCards from './FiltersCards'
-import { orderByName,orderByHealtScore, getRecipes } from "../actions";
+import { orderByName,orderByHealtScore, getRecipes } from "../../actions";
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {getRecipesByName} from '../actions'
+import {getRecipesByName} from '../../actions'
 
 const SearchBar = () =>{
     const dispatch = useDispatch()

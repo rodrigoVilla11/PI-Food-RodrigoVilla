@@ -9,8 +9,8 @@ const Paginado = ({recipesPerPage, recipes, paginado}) => {
         <nav>
             <ul className="paginado">
                 { pageNumbers && pageNumbers.map(number =>{ 
-                    return <li key={number}>
-                    <a onClick={()=> paginado(number)}>{number}</a>
+                    return <li key={number}>   
+                    <button onClick={()=> paginado(number)}>{number}</button>
                     </li>
                 })}
             </ul>

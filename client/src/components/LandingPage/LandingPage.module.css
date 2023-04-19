@@ -65,7 +65,7 @@
     flex-direction: column;
     width: 90vw;
     background-color:whitesmoke ;
-    bottom: -757px;
+    bottom: -665px;
     left: 5%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -86,12 +86,12 @@
 .prevButtonCarrousel{
     position: absolute;
     left: 0;
-    bottom: -570px;
+    bottom: -470px;
 }
 .nextButtonCarrousel{
     position: absolute;
     right: 0;
-    bottom: -570px;
+    bottom: -470px;
 }
 .fourthDiv{
     background-color: black;

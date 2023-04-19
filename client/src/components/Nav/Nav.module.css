@@ -1,8 +1,80 @@
 .Nav{
     background-color: white;
-    position: relative;
+    position: fixed;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
     width: 98.75vw;
     height: 6vw;
-    margin-top: -20px;
+    top: 0px;
     margin-bottom: 10px;
+    z-index: 2;
+    transition: top .5s;
+}
+.title{
+    margin-left: 5%;
+    height: 4vw;
+    width: 300px;
+    background-image: url('../../assets/only-logo-transparent1.PNG');
+    background-repeat:no-repeat;
+    background-size: 150px 150px;
+    background-position: 50% 50%;
+}
+.logo{
+    height: 4vw;
+    width: 300px;
+    background-image: url('../../assets/only-title-transparent.PNG');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.contacts{
+    margin-right: 5%;
+    padding: 10px;
+    height: 4vw;
+    width: 270px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contacts div {
+    height: 3vw;
+    width: 3vw;
+}
+.instagram{
+    background-image: url('../../assets/instagram-blackandwhite.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.instagram:hover{
+    background-image: url('../../assets/instagram-color.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.linkedin{
+    background-image: url('../../assets/linkedin-blackandwhite.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.linkedin:hover{
+    background-image: url('../../assets/linkedin-color.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.github{
+    background-image: url('../../assets/github-blackandwhite.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.github:hover{
+    background-image: url('../../assets/github-color.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
 }
