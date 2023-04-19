@@ -49,6 +49,31 @@
     width: 98vw;
     height: 400px;
 }
+.carrousel{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.carrousel.active{
+    opacity: 1
+}
+.titleCarrousel{
+    position: absolute;
+    bottom: 5px;
+}
+.imageCarrousel{
+    height: 400px;
+}
+.prevButtonCarrousel{
+    position: absolute;
+    left: 0;
+}
+.nextButtonCarrousel{
+    position: absolute;
+    right: 0;
+}
 .fourthDiv{
     background-color: red;
     margin: 0 auto;
