@@ -47,34 +47,41 @@ const Home = () => {
     dispatch(getRecipes())
   }, [dispatch])
 
-  
+  console.log(recipes.diets)
 return(
     <div className={styles.body}>
       <SearchBar/>
+      <div className={styles.filterAndOrder}>
       <FiltersCards />
       <div className={styles.orderCards}>
+        <div className={styles.selectsDiv}>
       <span> Order By Name: </span>
-          <select onChange={e=>handleOrderByName(e)}>
+          <select onChange={e=>handleOrderByName(e)} className={styles.selects}>
           <option value="All"></option>
             <option value="ascendente">Ascendente</option>
             <option value="descendente">Descendente</option>
           </select>
+          </div>
+          <div className={styles.selectsDiv}>
           <span> Order By Health Score: </span>
-          <select onChange={e=>handleOrderByHS(e)}>
+          <select onChange={e=>handleOrderByHS(e)} className={styles.selects}>
             <option value="All"></option>
             <option value="ascendente">Ascendente</option>
             <option value="descendente">Descendente</option>
-          </select>
+          </select></div>
         </div>
+        <div className={styles.textFilters}>Filter or Order</div>
+        <div className={styles.arrowFilters}>→</div>
+      </div>
         <div className={styles.createRecipe}><Link to='/form'><button className={styles.createRecipeButton}>Create New Recipe</button></Link></div>
       <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} paginated={paginated}/>
       <div className={styles.cards}>{currentRecipes.map(({id,title, image, diets})=> {
         return <Link key={id} to={`/detail/${id}`} style={{textDecoration: 'none', color: 'black'} }> 
         <div className={styles.card} >
         <div>
-        <h2>{title}</h2>
-        <img src={image} alt={title} />
-        <h5>{diets.map(el => el.name)}</h5>
+          <div className={styles.cardTitleDiv}><h2 className={styles.cardTitle}>{title}</h2></div>
+          <div className={styles.cardImageDiv}> <img src={image} alt={title} className={styles.cardImage} /></div>
+        <div className={styles.cardDietsDiv}><h5>Diets: {diets.join(' ') === '' ? 'This recipe is not part of any diet' : diets.join(' ') }</h5></div>
         </div>
         </div></Link>} )}</div>
       <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} paginated={paginated}/>

@@ -17,7 +17,6 @@ const getDiets = async (req, res) => {
       Diet.findOrCreate({ where: { name: el } });
     });
     const allDiets = await Diet.findAll();
-    console.log(allDiets);
     res.status(200).send(allDiets);
   } catch (error) {
     res.status(404).json({ error: error.message });

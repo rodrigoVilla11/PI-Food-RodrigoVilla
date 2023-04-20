@@ -84,8 +84,8 @@ const getRecipeByName = async (req, res) => {
           attributes: ["name"],
         },
       });
-      const allRecipes = await previewResults.concat(recipesDb);
-      res.status(200).send(allRecipes);
+      const allRecipesPreview = await previewResults.concat(recipesDb);
+      res.status(200).send(allRecipesPreview);
     }
   } catch (error) {
     res.status(404).json({ error: error.message });

@@ -1,3 +1,9 @@
+.body{
+    background-image: url('../../assets/comida-ingredientes.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .firstDiv{
     background-color: grey;
     filter:alpha(opacity=50); 
@@ -84,11 +90,15 @@
     width: 600px;
 }
 .prevButtonCarrousel{
+    background-color: black;
+    color: white;
     position: absolute;
     left: 0;
     bottom: -470px;
 }
 .nextButtonCarrousel{
+    background-color: black;
+    color: white;
     position: absolute;
     right: 0;
     bottom: -470px;
