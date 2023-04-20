@@ -1,4 +1,6 @@
-const Paginado = ({recipesPerPage, recipes, paginado}) => {
+import styles from './Home.module.css'
+
+const Paginated = ({recipesPerPage, recipes, paginated}) => {
     const pageNumbers = []
 
     for(let i = 0; i <= Math.ceil(recipes/recipesPerPage); i++) {
@@ -6,15 +8,15 @@ const Paginado = ({recipesPerPage, recipes, paginado}) => {
     }
     
     return(
-        <nav>
-            <ul className="paginado">
+        <nav className={styles.navPaginated}>
+            <ul className={styles.paginated}>
                 { pageNumbers && pageNumbers.map(number =>{ 
-                    return <li key={number}>   
-                    <button onClick={()=> paginado(number)}>{number}</button>
+                    return <li key={number} style={{listStyle: 'none'} }>   
+                    <button className={styles.eachPaginated} onClick={()=> paginated(number)}>{number}</button>
                     </li>
                 })}
             </ul>
         </nav>
     )
 }
-export default Paginado
+export default Paginated

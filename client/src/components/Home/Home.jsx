@@ -4,9 +4,10 @@ import { orderByName,orderByHealtScore, getRecipes } from "../../actions";
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Paginado from './Paginado'
+import Paginated from './Paginado'
+import styles from './Home.module.css'
 
-const Home = () =>{
+const Home = () => {
   const dispatch = useDispatch()
   const recipes = useSelector((state) => state.filteredRecipes)
   const [currentPage, setCurrentPage] = useState(1)
@@ -14,43 +15,44 @@ const Home = () =>{
   const [recipesPerPage, setRecipesPerPage] = useState(9)
   const indexOfLastRecipe = currentPage * recipesPerPage
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage
-  const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+  const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
   // eslint-disable-next-line
-  const [order, setOrder] = useState('')
+  const [orderByNameValue, setOrderByNameValue] = useState('')
+  // eslint-disable-next-line
+  const [orderByHSValue, setOrderByHSValue] = useState('')
 
-  const paginado = (pageNumber) =>{
-    if(pageNumber !== currentPage)
-    setCurrentPage(pageNumber);
+  const paginated = (pageNumber) => {
+    if (pageNumber !== currentPage) setCurrentPage(pageNumber)
   }
+
   const handleOrderByName = (e) => {
     e.preventDefault()
-    dispatch(orderByName(e.target.value))
-    setOrder('Ordered')
+    const value = e.target.options[e.target.selectedIndex].value
+    dispatch(orderByName(value))
+    setOrderByNameValue(value)
+    setOrderByHSValue('')
     setCurrentPage(1)
   }
 
   const handleOrderByHS = (e) => {
     e.preventDefault()
-    dispatch(orderByHealtScore(e.target.value))
-    setOrder('Ordered')
+    const value = e.target.options[e.target.selectedIndex].value
+    dispatch(orderByHealtScore(value))
+    setOrderByHSValue(value)
+    setOrderByNameValue('')
     setCurrentPage(1)
   }
-  //EL PROBLEMA ES CUANDO ESTOY EN LA PAGE 1 Y ORDENO, NO ME ACTUALIZA, PERO SI CAMBIO LA PAGE Y VUELVO, SE RE-RENDERIZA TODO PERFECTO
-  useEffect(()=>{
-    dispatch(getRecipes())
-  },[dispatch])
 
-  const handleClick = (e) =>{
-    e.preventDefault() 
-    dispatch(getRecipes());
-  }
+  useEffect(() => {
+    dispatch(getRecipes())
+  }, [dispatch])
+
   
 return(
-    <div>
-      <h1>HOME</h1>
+    <div className={styles.body}>
       <SearchBar/>
       <FiltersCards />
-      <div>
+      <div className={styles.orderCards}>
       <span> Order By Name: </span>
           <select onChange={e=>handleOrderByName(e)}>
           <option value="All"></option>
@@ -64,19 +66,18 @@ return(
             <option value="descendente">Descendente</option>
           </select>
         </div>
-      <Link to='/form'><button>Crear Receta</button></Link>
-      <button onClick={e=>{handleClick(e)}}>Volver a cargar</button>
-      <Paginado recipesPerPage={recipesPerPage} recipes={recipes.length} paginado={paginado}/>
-      <div>{currentRecipes.map(({id,title, image, diets})=> {
+        <div className={styles.createRecipe}><Link to='/form'><button className={styles.createRecipeButton}>Create New Recipe</button></Link></div>
+      <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} paginated={paginated}/>
+      <div className={styles.cards}>{currentRecipes.map(({id,title, image, diets})=> {
         return <Link key={id} to={`/detail/${id}`} style={{textDecoration: 'none', color: 'black'} }> 
-        <div >
+        <div className={styles.card} >
         <div>
         <h2>{title}</h2>
         <img src={image} alt={title} />
         <h5>{diets.map(el => el.name)}</h5>
         </div>
         </div></Link>} )}</div>
-      
+      <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} paginated={paginated}/>
     </div>
 )
 }

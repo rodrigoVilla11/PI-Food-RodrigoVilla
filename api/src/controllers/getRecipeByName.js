@@ -2,13 +2,13 @@ require("dotenv").config();
 const axios = require("axios");
 const { Op } = require("sequelize");
 const { Recipe, Diet } = require("../db.js");
-const { api_key } = process.env;
+const { API_KEY } = process.env;
 
 const getRecipeByName = async (req, res) => {
   const name = req.query.name;
   try {
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api_key}&query=${name}&addRecipeInformation=true`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}&addRecipeInformation=true`
     );
 
     if (name) {
@@ -47,12 +47,12 @@ const getRecipeByName = async (req, res) => {
         },
       });
       const allRecipes = await filteredResults.concat(recipesDb);
-      if (allRecipes.length == 0)
+      if (previewResults.length == 0 && recipesDb.length == 0)
         res.status(400).json({ error: "recipe not found" });
       res.status(200).json(allRecipes);
     } else {
       const preview = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api_key}&addRecipeInformation=true&number=100`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
       );
       let previewResults = await preview.data.results.map(
         ({

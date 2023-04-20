@@ -1,5 +1,6 @@
 import { filterRecipesByDiets,filterRecipesByCreator } from "../../actions";
 import {useDispatch} from 'react-redux'
+import styles from './Home.module.css'
 
 const FiltersCards = () =>{
   const dispatch = useDispatch()
@@ -11,7 +12,7 @@ function handleFilterByCreator(e){
   dispatch(filterRecipesByCreator(e.target.value))
 }
     return(
-        <div>
+        <div className={styles.filterCards}>
           <span> Filter by diets: </span>
           <select onChange={e => handleFilterByDiets(e)}>
             <option value="All">All</option>

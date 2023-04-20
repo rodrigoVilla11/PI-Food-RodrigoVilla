@@ -1,0 +1,78 @@
+
+.body{
+    display: flex;
+    flex-direction: column;
+    
+    background-color: aliceblue;
+}
+.searchBar{
+    margin: 100px auto 10px auto;
+}
+.inputSearchBar{
+    width: 80vw;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+.buttonSearchBar{
+    height: 40px;
+    border-radius: 100%;
+     background-color: black;
+    color: white;
+}
+.buttonSearchBar:hover{
+    cursor: pointer;
+}
+.createRecipe{
+    margin: 0 auto;
+}
+.createRecipeButton{
+    height: 40px;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+}
+.createRecipeButton:hover{
+    cursor: pointer;
+}
+.filterCards{
+    display: none
+}
+.orderCards{
+    display: none
+}
+.navPaginated{
+    margin: 0 auto;
+}
+.paginated{
+    display: inline-flex;
+}
+.eachPaginated{
+    margin: 10px 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+}
+.eachPaginated:hover{
+    font-size: 20px;
+    cursor: pointer;
+}
+.cards{
+    display: flex;
+    border: 1px solid blue;
+    padding: 10px 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.card{
+    border: 1px solid black;
+    width: 30%;
+    height: 400px;
+    
+}
