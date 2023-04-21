@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Nav from "./components/Nav/Nav";
-import Detail from "./components/Detail";
+import Detail from "./components/Detail/Detail";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Form from "./components/Form";
 

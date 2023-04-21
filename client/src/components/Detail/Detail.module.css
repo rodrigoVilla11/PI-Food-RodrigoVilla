@@ -1,0 +1,59 @@
+.body{
+    color: black;
+    background-image: url('../../assets/portada-comida-scaled.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family:'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    height: 110vh;
+}
+.goBackHome{
+    margin-top: 90px;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+.detailTitle{
+    width: 90%;
+    margin: 0 auto;
+    background-color: antiquewhite;
+}
+.detailImage{
+    width: 30%;
+    height: 269px;
+    margin: 0 5%;
+}
+.detailSummary{
+    font-size: 17px;
+    position: absolute;
+    margin-top: -275px;
+    margin-left: 35%;
+    padding-left: 2%;
+    width: 58%;
+    height: 269px;
+    background-color: antiquewhite;
+}
+.detailHealthScore{
+    width: 10%;
+    position: absolute;
+    margin-top: 402px;
+    margin-left: 37%;
+   
+}
+.detailInstructions{
+    position: absolute;
+    margin-top: 445px;
+    margin-left: 5%;
+    width: 90%;
+    height: 200px;
+    background-color: antiquewhite;
+}
+.detailDiets{
+    width: 48%;
+    position: absolute;
+    margin-top: 402px;
+    margin-left: 46%;
+   
+}

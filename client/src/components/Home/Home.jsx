@@ -43,11 +43,13 @@ const Home = () => {
     setCurrentPage(1)
   }
 
+  const isArrayOfObjects = (arr) => {
+    return Array.isArray(arr) && arr.every((item) => typeof item === 'object' && item !== null);
+  };
+
   useEffect(() => {
     dispatch(getRecipes())
   }, [dispatch])
-
-  console.log(recipes.diets)
 return(
     <div className={styles.body}>
       <SearchBar/>
@@ -81,7 +83,7 @@ return(
         <div>
           <div className={styles.cardTitleDiv}><h2 className={styles.cardTitle}>{title}</h2></div>
           <div className={styles.cardImageDiv}> <img src={image} alt={title} className={styles.cardImage} /></div>
-        <div className={styles.cardDietsDiv}><h5>Diets: {diets.join(' ') === '' ? 'This recipe is not part of any diet' : diets.join(' ') }</h5></div>
+        <div className={styles.cardDietsDiv}><h5>Diets: {isArrayOfObjects(diets) ? diets.map(el=>el.name + ' | ' ): diets.join(' | ')}</h5></div>
         </div>
         </div></Link>} )}</div>
       <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} paginated={paginated}/>
