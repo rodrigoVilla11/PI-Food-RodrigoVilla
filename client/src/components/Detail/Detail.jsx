@@ -25,7 +25,7 @@ const Detail = () =>{
         <div className={styles.detailSummary}><h5>-Summary: {recipe.summary?.replace(/<[^>]*>/g, '')}</h5></div></div>
         <div className={styles.detailHealthScore}><h5>-Health Score: {recipe.healthScore}</h5></div>
         <div className={styles.detailInstructions}><h5>Instructions: {recipe.instructions?.replace(/<[^>]*>/g, '')}</h5></div>
-        <div className={styles.detailDiets}><h5>-In whichs diets the recipe can be? {isArrayOfObjects(recipe.diets) ? recipe.diets.map(el=>el.name + ' | ' ): recipe.diets}</h5></div>
+        <div className={styles.detailDiets}><h5>-In whichs diets the recipe can be? {recipe.diets.length  ? isArrayOfObjects(recipe.diets) ? recipe.diets.map(el=>el.name + ' | ' ): recipe.diets.join(' | '): 'There is no diets for this recipe'}</h5></div>
         </div>
     )
     }

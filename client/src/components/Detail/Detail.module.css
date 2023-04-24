@@ -13,12 +13,15 @@
     margin-top: 90px;
     margin-left: 5%;
     margin-bottom: 10px;
+    background-color: black;
+    color: white;
 }
 
 .detailTitle{
-    width: 90%;
+    width:  89.3%;
     margin: 0 auto;
     background-color: black;
+    padding-left: 10px;
 }
 .detailImage{
     width: 30%;
@@ -46,7 +49,8 @@
     position: absolute;
     margin-top: 445px;
     margin-left: 5%;
-    width: 90%;
+    padding-left: 10px;
+    width: 89.3%;
     height: 200px;
     background-color: black;
 }

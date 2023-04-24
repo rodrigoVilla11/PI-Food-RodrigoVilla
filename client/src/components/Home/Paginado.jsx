@@ -1,17 +1,13 @@
-import { useState } from 'react'
 import styles from './Home.module.css'
 
 const Paginated = ({recipesPerPage, recipes, currentPage, totalPages, setCurrentPage}) => {
     const pageNumbers = []
-    const [colorButton, setColorButton]  = useState('')
+  
 
     const paginated = (pageNumber) => {
     if (pageNumber !== currentPage) setCurrentPage(pageNumber)
-    console.log(pageNumber)
-    console.log(currentPage)
-    // if(currentPage){
-    //     setColorButton('green')
-    // }
+    console.log('page' + pageNumber)
+    console.log('current' + currentPage)
     }
 
     for(let i = 0; i <= Math.ceil(recipes/recipesPerPage); i++) {
@@ -28,8 +24,6 @@ const Paginated = ({recipesPerPage, recipes, currentPage, totalPages, setCurrent
           setCurrentPage(currentPage - 1)
         }
       }
-    
-
 
     return(
         <nav className={styles.navPaginated}>
@@ -37,7 +31,7 @@ const Paginated = ({recipesPerPage, recipes, currentPage, totalPages, setCurrent
                 <button className={styles.eachPaginated} onClick={()=>prevButton()}>←</button>
                 { pageNumbers && pageNumbers.map(number =>{ 
                     return <li key={number} style={{listStyle: 'none'} }>   
-                    <button style={{color: colorButton}} className={styles.eachPaginated} onClick={()=> paginated(number)}>{number}</button>
+                    <button /*style={{color: 'white'}}*/ className={styles.eachPaginated} onClick={()=> paginated(number)}>{number}</button>
                     </li>
                 })}
                 <button className={styles.eachPaginated} onClick={() => nextButton()}>→</button>
