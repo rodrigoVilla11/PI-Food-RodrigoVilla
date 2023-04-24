@@ -1,15 +1,17 @@
-import { filterRecipesByDiets,filterRecipesByCreator } from "../../actions";
+import { filterRecipesByDiets,filterRecipesByCreator } from "../../redux/actions";
 import {useDispatch} from 'react-redux'
 import styles from './Home.module.css'
 
-const FiltersCards = () =>{
+const FiltersCards = ({setCurrentPage}) =>{
   const dispatch = useDispatch()
 
 function handleFilterByDiets(e){
   dispatch(filterRecipesByDiets(e.target.value))
+  setCurrentPage(1)
 }
 function handleFilterByCreator(e){
   dispatch(filterRecipesByCreator(e.target.value))
+  setCurrentPage(1)
 }
     return(
         <div className={styles.filterCards}>

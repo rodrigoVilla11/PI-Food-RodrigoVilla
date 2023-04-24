@@ -1,4 +1,4 @@
-import { getRecipesById } from "../../actions";
+import { getRecipesById } from "../../redux/actions";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from "react-router-dom";
@@ -22,10 +22,10 @@ const Detail = () =>{
         <Link to='/home'><button className={styles.goBackHome}>HOME</button></Link>
         <div className={styles.detailTitle}><h2>Recipe: {recipe.title}</h2></div>
          <div className={styles.imageAndSummary}> <div className={styles.detailImageDiv}> <img className={styles.detailImage} src={recipe.image} alt={recipe.title} /></div>
-        <div className={styles.detailSummary}><h5>-Summary: {recipe.summary}</h5></div></div>
+        <div className={styles.detailSummary}><h5>-Summary: {recipe.summary?.replace(/<[^>]*>/g, '')}</h5></div></div>
         <div className={styles.detailHealthScore}><h5>-Health Score: {recipe.healthScore}</h5></div>
-        <div className={styles.detailInstructions}><h5>Instructions: {recipe.instructions}</h5></div>
-        <div className={styles.detailDiets}><h5>-In whichs diets the recipe can be? {isArrayOfObjects(recipe.diets) ? recipe.diets.map(el=>el.name + ' | ' ): recipe.diets.join(' | ')}</h5></div>
+        <div className={styles.detailInstructions}><h5>Instructions: {recipe.instructions?.replace(/<[^>]*>/g, '')}</h5></div>
+        <div className={styles.detailDiets}><h5>-In whichs diets the recipe can be? {isArrayOfObjects(recipe.diets) ? recipe.diets.map(el=>el.name + ' | ' ): recipe.diets}</h5></div>
         </div>
     )
     }

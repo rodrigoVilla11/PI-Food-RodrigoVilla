@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {getRecipesByName} from '../../actions'
+import {getRecipesByName} from '../../redux/actions'
 import styles from './Home.module.css'
 
 const SearchBar = () =>{
@@ -10,6 +10,7 @@ const SearchBar = () =>{
     const handleSearchName = (e) => {
         e.preventDefault()
         setName(e.target.value)
+        console.log(name)
     }
 
     const handleSubmit = e => {

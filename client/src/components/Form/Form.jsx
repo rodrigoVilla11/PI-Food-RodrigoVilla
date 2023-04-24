@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {getDiets, postRecipe} from '../actions'
+import {getDiets, postRecipe} from '../../redux/actions'
+import styles from './Form.module.css'
 
 const Form = () =>{
   const dispatch = useDispatch()
@@ -143,37 +144,37 @@ const Form = () =>{
   }
 
     return(
-        <div>
+        <div className={styles.body}>
           <Link to='/home'><button>Back to Home</button></Link>
           <h1>Create your Recipe</h1>
-          <form onSubmit={e=>handleSubmit(e)}>
+          <form className={styles.form} onSubmit={e=>handleSubmit(e)}>
           <div>
-            <label htmlFor="title">Title: </label>
-            <input type="text" name="title" value={input.title} onChange={e=>handleChange(e)}/>            
+            <div className={styles.div}> <label htmlFor="title">Title: </label></div>
+            <div className={styles.inputDiv}> <input className={styles.inputs} type="text" name="title" value={input.title} onChange={e=>handleChange(e)}/>            </div>
           </div>
           <div>{errors.title}</div>
           <div>
-            <label htmlFor="summary">Summary: </label>
+            <div className={styles.div}> <label className={styles.label} htmlFor="summary">Summary: </label></div>
             <textarea type="text" name="summary" value={input.summary} onChange={e=>handleChange(e)}/>
           </div>
           <div>{errors.summary}</div>
           <div>
-            <label htmlFor="healthScore">Health Score: </label>
+          <div className={styles.div}><label htmlFor="healthScore">Health Score: </label></div>
             <input type="text" name="healthScore" value={input.healthScore} onChange={e=>handleChange(e)}/>
           </div>
           <div>{errors.healthScore}</div>
           <div>
-            <label htmlFor="instructions">Instructions: </label>
+          <div className={styles.div}><label htmlFor="instructions">Instructions: </label></div>
             <textarea type="text" name="instructions" value={input.instructions} onChange={e=>handleChange(e)}/>
           </div>
           <div>{errors.instructions}</div>
           <div>
-            <label htmlFor="image">Image: </label>
+          <div className={styles.div}><label htmlFor="image">Image: </label></div>
             <input type="text" name="image" value={input.image} onChange={e=>handleChange(e)}/>
           </div>
           <div>{errors.image}</div>
           <div>
-            <label htmlFor="diets">Diets: </label>
+          <div className={styles.div}><label htmlFor="diets">Diets: </label></div>
             <select onChange={e=>handleDiets(e)}> 
               {diets.map((diet) =>(
                 <option value={diet.name} >{diet.name}</option>

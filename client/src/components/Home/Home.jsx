@@ -1,6 +1,6 @@
 import SearchBar from './SearchBar'
 import FiltersCards from './FiltersCards'
-import { orderByName,orderByHealtScore, getRecipes } from "../../actions";
+import { orderByName,orderByHealtScore, getRecipes } from "../../redux/actions";
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -21,9 +21,11 @@ const Home = () => {
   // eslint-disable-next-line
   const [orderByHSValue, setOrderByHSValue] = useState('')
 
-  const paginated = (pageNumber) => {
-    if (pageNumber !== currentPage) setCurrentPage(pageNumber)
-  }
+ 
+
+  const recipesLength = recipes.length
+  const totalPages = Math.ceil(recipesLength / recipesPerPage)
+
 
   const handleOrderByName = (e) => {
     e.preventDefault()
@@ -52,9 +54,9 @@ const Home = () => {
   }, [dispatch])
 return(
     <div className={styles.body}>
-      <SearchBar/>
+      <SearchBar />
       <div className={styles.filterAndOrder}>
-      <FiltersCards />
+      <FiltersCards setCurrentPage={setCurrentPage}/>
       <div className={styles.orderCards}>
         <div className={styles.selectsDiv}>
       <span> Order By Name: </span>
@@ -76,17 +78,17 @@ return(
         <div className={styles.arrowFilters}>→</div>
       </div>
         <div className={styles.createRecipe}><Link to='/form'><button className={styles.createRecipeButton}>Create New Recipe</button></Link></div>
-      <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} paginated={paginated}/>
+      <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
       <div className={styles.cards}>{currentRecipes.map(({id,title, image, diets})=> {
         return <Link key={id} to={`/detail/${id}`} style={{textDecoration: 'none', color: 'black'} }> 
         <div className={styles.card} >
         <div>
           <div className={styles.cardTitleDiv}><h2 className={styles.cardTitle}>{title}</h2></div>
           <div className={styles.cardImageDiv}> <img src={image} alt={title} className={styles.cardImage} /></div>
-        <div className={styles.cardDietsDiv}><h5>Diets: {isArrayOfObjects(diets) ? diets.map(el=>el.name + ' | ' ): diets.join(' | ')}</h5></div>
+        <div className={styles.cardDietsDiv}><h5>Diets: {diets.length  ? isArrayOfObjects(diets) ? diets.map(el=>el.name + ' | ' ): diets.join(' | ') : 'There is no diets for this recipe'}</h5></div>
         </div>
         </div></Link>} )}</div>
-      <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} paginated={paginated}/>
+      <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
     </div>
 )
 }

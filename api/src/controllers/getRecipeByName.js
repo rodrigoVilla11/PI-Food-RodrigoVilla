@@ -47,7 +47,7 @@ const getRecipeByName = async (req, res) => {
         },
       });
       const allRecipes = await filteredResults.concat(recipesDb);
-      if (previewResults.length == 0 && recipesDb.length == 0)
+      if (allRecipes.length == 0 && recipesDb.length == 0)
         res.status(400).json({ error: "recipe not found" });
       res.status(200).json(allRecipes);
     } else {

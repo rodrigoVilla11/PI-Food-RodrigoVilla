@@ -1,7 +1,7 @@
 import {useDispatch, useSelector } from 'react-redux'
 import styles from './LandingPage.module.css'
 import { useState, useEffect } from 'react'
-import { getExamples } from "../../actions";
+import { getExamples } from "../../redux/actions";
 
 const Carrousel = () =>{
     const dispatch = useDispatch()

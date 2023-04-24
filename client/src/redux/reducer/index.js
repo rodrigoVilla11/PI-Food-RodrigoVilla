@@ -36,7 +36,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, filteredRecipes: action.payload };
 
     case FILTER_BY_DIET:
-      const allRecipes = [...state.recipes];
+      const allRecipes = [...state.filteredRecipes];
       const filteredRecipes =
         selectedDiet === "All"
           ? allRecipes
@@ -47,7 +47,7 @@ const rootReducer = (state = initialState, action) => {
         selectedDiet,
       };
     case FILTER_BY_CREATOR:
-      const allRecipesCreator = [...state.recipes];
+      const allRecipesCreator = [...state.filteredRecipes];
       const filteredCreatedByClient =
         selectedDiet === "dbRecipes"
           ? allRecipesCreator.filter((el) => typeof el.id === "string")
