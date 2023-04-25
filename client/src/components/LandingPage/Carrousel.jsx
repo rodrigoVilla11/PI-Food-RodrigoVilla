@@ -30,9 +30,9 @@ const Carrousel = () =>{
   }
     return(
         <div>
-            <button onClick={prevImage} className={styles.prevButtonCarrousel}>←</button>
+            <button onClick={prevImage} className={styles.button}><span class={styles.text}>←</span><span>←</span></button>
         {images}
-        <button onClick={nextImage} className={styles.nextButtonCarrousel}>→</button>
+          <button onClick={nextImage} className={styles.buttonNext}><span class={styles.text}>→</span><span>→</span></button>
         </div>
     )
 }

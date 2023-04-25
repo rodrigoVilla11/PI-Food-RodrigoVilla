@@ -12,23 +12,38 @@
     margin: 100px auto 10px auto;
 }
 .inputSearchBar{
+    top: 10px;
     width: 80vw;
     height: 40px;
     font-size: 20px;
     border: none;
     margin-right: 10px;
     border-radius: 10px;
-    background-color: black;
-    color: white;
+    background-color: #fff;
+    color: black;
     font-family:'Times New Roman', Times, serif
 }
-.buttonSearchBar{
-    height: 40px;
-    border-radius: 100%;
-     background-color: black;
-    color: white;
+.buttonSearchBar {
+    display: inline-flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
     font-family:'Times New Roman', Times, serif
 }
+   
+.buttonSearchBar:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+   }
+
 .buttonSearchBar:hover{
     cursor: pointer;
 }
@@ -36,19 +51,31 @@
     margin: 0 auto;
 }
 .createRecipeButton{
-    height: 40px;
-    border-radius: 100%;
-    background-color: black;
-    color: white;
+    display: inline-flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
     font-family:'Times New Roman', Times, serif
 }
+.createRecipeButton:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+   }
 .createRecipeButton:hover{
     cursor: pointer;
 }
 .filterAndOrder{
     border: 1px solid black;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color:black;
     position: fixed ;
     width: 30px;
     height: 350px;
@@ -72,8 +99,8 @@
 }
 .arrowFilters{
     border: 1px solid black;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color:black;
     width: 50px;
     height: 50px;
     font-size: 45px;
@@ -84,7 +111,8 @@
 }
 .textFilters{
     position: absolute;
-    background-color: black;
+    background-color: white;
+    color:black;
     font-size: 20px;
     width: 30px;
     height: 350px;
@@ -109,7 +137,7 @@
 .selects{
     width: 130px;
     background-color: black;
-    color: white;
+    color:white;
 }
 .selectsDiv{
     margin: 10px 5px;
@@ -121,17 +149,31 @@
     display: inline-flex;
 }
 .eachPaginated{
-    margin: 10px 10px;
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
-    background-color: black;
-    color: white;
-    font-family:'Times New Roman', Times, serif
+    display: inline-flex;
+    height: 3em;
+    width: 25px;
+    margin-left: 25px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    font-family:'Times New Roman', Times, serif;
+    box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.093),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.133),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.165),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.197),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.237),
+    100px 100px 80px rgba(0, 0, 0, 0.33)
 }
 .eachPaginated:hover{
-    font-size: 20px;
-    cursor: pointer;
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
 }
 .cards{
     display: flex;
@@ -139,13 +181,25 @@
     flex-wrap: wrap;
 }
 .card{
-    border: 1px solid black;
     width: 500px;
     height: 200px;
     margin: 10px 10px;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-family:'Times New Roman', Times, serif
+    background-color: white;
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+    box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.093),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.133),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.165),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.197),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.237),
+    100px 100px 80px rgba(0, 0, 0, 0.33);
+    border-radius: 20px;
+;
+}
+.card:hover{
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
 }
 .cardTitleDiv{
     height: 150px;
@@ -154,7 +208,7 @@
     padding-left: 10px;
 }
 .cardImageDiv{
-    margin: -170px auto 0 0;
+    margin: -150px auto 0 0;
     height: 200px;
     width: 250px;
 }

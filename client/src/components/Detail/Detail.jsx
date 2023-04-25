@@ -20,12 +20,31 @@ const Detail = () =>{
     return(
         <div className={styles.body}>
         <Link to='/home'><button className={styles.goBackHome}>HOME</button></Link>
-        <div className={styles.detailTitle}><h2>Recipe: {recipe.title}</h2></div>
-         <div className={styles.imageAndSummary}> <div className={styles.detailImageDiv}> <img className={styles.detailImage} src={recipe.image} alt={recipe.title} /></div>
-        <div className={styles.detailSummary}><h5>-Summary: {recipe.summary?.replace(/<[^>]*>/g, '')}</h5></div></div>
-        <div className={styles.detailHealthScore}><h5>-Health Score: {recipe.healthScore}</h5></div>
-        <div className={styles.detailInstructions}><h5>Instructions: {recipe.instructions?.replace(/<[^>]*>/g, '')}</h5></div>
-        <div className={styles.detailDiets}><h5>-In whichs diets the recipe can be? {recipe.diets.length  ? isArrayOfObjects(recipe.diets) ? recipe.diets.map(el=>el.name + ' | ' ): recipe.diets.join(' | '): 'There is no diets for this recipe'}</h5></div>
+
+        <div className={styles.card}>
+		<div className={styles.header}>
+    <span className={styles.title}><h2>Recipe: {recipe.title}</h2></span>
+      <div className={styles.imgAndDetails}>
+			<div className={styles.image}>
+       <img className={styles.detailImage} src={recipe.image} alt={recipe.title} />
+				
+			</div>
+      <div className={styles.details}>
+      <h5>-Summary: {recipe.summary?.replace(/<[^>]*>/g, '')}</h5>
+				
+			</div>	</div>
+
+      
+
+		</div>
+		<div className={styles.info}>
+			<p className={styles.description}>
+        <span><h5>-Health Score: {recipe.healthScore}</h5></span>
+        <span><h5>-In whichs diets the recipe can be? {recipe.diets?.length  ? isArrayOfObjects(recipe.diets) ? recipe.diets.map(el=>el.name + ' | ' ): recipe.diets.join(' | '): 'There is no diets for this recipe'}</h5></span>
+        <h5>Instructions: {recipe.instructions?.replace(/<[^>]*>/g, '')}</h5>
+        </p>
+		</div>
+	</div>
         </div>
     )
     }

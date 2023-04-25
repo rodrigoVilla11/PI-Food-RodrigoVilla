@@ -152,43 +152,45 @@ const Form = () =>{
           <Link to='/home'><button className={styles.backHome}>Back to Home</button></Link>
           <div className={styles.titleDiv}><h1 className={styles.title}>Create your Recipe</h1></div>
           <form className={styles.form} onSubmit={e=>handleSubmit(e)}>
-          <div>
-            <div className={styles.div}> <label htmlFor="title">Title: </label></div>
-            <div className={styles.inputDiv}> <input className={styles.inputs} type="text" name="title" value={input.title} onChange={e=>handleChange(e)}/>            </div>
+          <div className={styles.div}>
+            <div className={styles.labelDiv} > <label htmlFor="title">Title: </label></div>
+            <div className={styles.inputDiv}> <input className={styles.input} type="text" name="title" value={input.title} onChange={e=>handleChange(e) } />            </div>
           </div>
           <div className={styles.errors}>{errors.title}</div>
-          <div>
-            <div className={styles.div}> <label className={styles.label} htmlFor="summary">Summary: </label></div>
-            <div className={styles.inputDiv}><textarea className={styles.inputs} type="text" name="summary" value={input.summary} onChange={e=>handleChange(e)}/></div>
+          <div className={styles.div}>
+            <div className={styles.labelDiv}> <label className={styles.label} htmlFor="summary">Summary: </label></div>
+            <div className={styles.inputDiv}><textarea className={styles.input} type="text" name="summary" value={input.summary} onChange={e=>handleChange(e)}/></div>
           </div>
           <div className={styles.errors}>{errors.summary}</div>
-          <div>
-            <div className={styles.div}><label htmlFor="healthScore">Health Score: </label></div>
-            <div className={styles.inputDiv}><input className={styles.inputs} type="text" name="healthScore" value={input.healthScore} onChange={e=>handleChange(e)}/></div>
+          <div className={styles.div}>
+            <div className={styles.labelDiv}><label htmlFor="healthScore">Health Score: </label></div>
+            <div className={styles.inputDiv}><input className={styles.input} type="text" name="healthScore" value={input.healthScore} onChange={e=>handleChange(e)}/></div>
           </div>
           <div className={styles.errors}>{errors.healthScore}</div>
-          <div>
-          <div className={styles.div}><label htmlFor="instructions">Instructions: </label></div>
-          <div className={styles.inputDiv}><textarea className={styles.inputs} type="text" name="instructions" value={input.instructions} onChange={e=>handleChange(e)}/></div>
+          <div className={styles.div}>
+          <div className={styles.labelDiv}><label htmlFor="instructions">Instructions: </label></div>
+          <div className={styles.inputDiv}><textarea className={styles.input} type="text" name="instructions" value={input.instructions} onChange={e=>handleChange(e)}/></div>
           </div>
           <div className={styles.errors}>{errors.instructions}</div>
-          <div>
-          <div className={styles.div}><label htmlFor="image">Image: </label></div>
-          <div className={styles.inputDiv}><input className={styles.inputs} type="text" name="image" value={input.image} onChange={e=>handleChange(e)}/></div>
+          <div className={styles.div}>
+          <div className={styles.labelDiv}><label htmlFor="image">Image: </label></div>
+          <div className={styles.inputDiv}><input className={styles.input} type="text" name="image" value={input.image} onChange={e=>handleChange(e)}/></div>
           </div>
           <div className={styles.errors}>{errors.image}</div>
-          <div>
-          <div className={styles.div}><label htmlFor="diets">Diets: </label></div>
-          <div className={styles.inputDiv}><select className={styles.inputs} onChange={e=>handleDiets(e)}> 
+          <div className={styles.div}>
+          <div className={styles.labelDiv}><label htmlFor="diets">Diets: </label></div>
+          <div className={styles.inputDiv}><select className={styles.input} onChange={e=>handleDiets(e)}> 
               {diets.map((diet) =>(
                 <option value={diet.name} >{diet.name}</option>
               ))}
-            </select>
-            <button className={styles.inputs} onClick={e=>handleCleanDiets(e)}>Clean diets</button>
-            <ul className={styles.inputs}><li>{input.diets.map(elem => elem + ",")}</li></ul>
-          </div></div>
-          <button type="submit" >Create Recipe</button>
+            </select></div>
+            <button className={styles.button} onClick={e=>handleCleanDiets(e)}>Clean diets</button>
+          </div>
+          <div  className={styles.div}> 
+            <ul className={styles.listaDiets}><li>{input.diets.map(elem => elem + ",")}</li></ul></div>
+         
           </form>
+          <button type="submit" className={styles.buttonSubmit}>Create Recipe</button>
         </div>
     )
     }
