@@ -92,47 +92,12 @@
   .description {
     line-height: 1.375;
   }
-/* .detailTitle{
-    width:  89.3%;
-    margin: 0 auto;
-    background-color: black;
-    padding-left: 10px;
+.loadingDiv{
+  max-width: 90%;
+  top:150px;
+  left:5%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.detailImage{
-    width: 30%;
-    height: 269px;
-    margin: 0 5%;
-}
-.detailSummary{
-    font-size: 17px;
-    position: absolute;
-    margin-top: -275px;
-    margin-left: 35%;
-    padding-left: 2%;
-    width: 58%;
-    height: 269px;
-    background-color: black;
-}
-.detailHealthScore{
-    width: 10%;
-    position: absolute;
-    margin-top: 402px;
-    margin-left: 37%;
-   
-}
-.detailInstructions{
-    position: absolute;
-    margin-top: 445px;
-    margin-left: 5%;
-    padding-left: 10px;
-    width: 89.3%;
-    height: 200px;
-    background-color: black;
-}
-.detailDiets{
-    width: 48%;
-    position: absolute;
-    margin-top: 402px;
-    margin-left: 46%;
-   
-} */

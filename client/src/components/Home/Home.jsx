@@ -54,6 +54,7 @@ const Home = () => {
   }, [dispatch])
 return(
     <div className={styles.body}>
+      { recipes ?<>
       <SearchBar />
       <div className={styles.filterAndOrder}>
       <FiltersCards setCurrentPage={setCurrentPage}/>
@@ -89,7 +90,7 @@ return(
         </div>
         </div></Link>} )}</div>
       <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-    </div>
+    </> : <div className={styles.loadingDiv}><span class="loader"></span></div>} </div>
 )
 }
 export default Home;
