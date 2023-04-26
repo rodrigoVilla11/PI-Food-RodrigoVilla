@@ -74,7 +74,7 @@ const Form = () =>{
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(errors.diets || errors.healthScore || errors.image || errors.instructions || errors.summary || errors.title){
+    if(!input.title || input.summary || input.healthScore || input.instructions || input.image || input.diets || errors.diets || errors.healthScore || errors.image || errors.instructions || errors.summary || errors.title){
       alert("You can't create a recipe with errors")
       console.log(errors)
     }
