@@ -1,14 +1,14 @@
 require("dotenv").config();
 const axios = require("axios");
 const { Recipe, Diet } = require("../db");
-const { api_key } = process.env;
+const { API_KEY } = process.env;
 
 const getRecipeById = async (req, res) => {
   const { idRecipe } = req.params;
   try {
     if (!isNaN(idRecipe)) {
       const apiUrl = await axios.get(
-        `https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${api_key}`
+        `https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}`
       );
       const {
         id,

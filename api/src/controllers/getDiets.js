@@ -1,12 +1,12 @@
 require("dotenv").config();
 const axios = require("axios");
 const { Diet } = require("../db.js");
-const { api_key } = process.env;
+const { API_KEY } = process.env;
 
 const getDiets = async (req, res) => {
   try {
     const dietsApi = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch/?apiKey=${api_key}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch/?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
     );
     const diet = dietsApi.data.results.flatMap((el) => el.diets);
     dietsApi.data.results.forEach((el) => {
