@@ -75,7 +75,7 @@ export function orderByHealtScore(payload) {
 
 export function getDiets() {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/diets");
+    const response = await axios.get("/diets");
     return dispatch({
       type: GET_DIETS,
       payload: response.data,
@@ -85,16 +85,14 @@ export function getDiets() {
 
 export function postRecipe(payload) {
   return async function (dispatch) {
-    const response = await axios.post("http://localhost:3001/recipes", payload);
+    const response = await axios.post("/recipes", payload);
     return response;
   };
 }
 
 export function getExamples() {
   return async function (dispatch) {
-    const response = await axios.get(
-      "http://localhost:3001/examplesLandingPage"
-    );
+    const response = await axios.get("/examplesLandingPage");
     return dispatch({
       type: GET_EXAMPLES,
       payload: response.data,
