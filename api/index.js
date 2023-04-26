@@ -17,14 +17,16 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+require("dotenv").config();
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const getDiets = require("./src/controllers/getDiets.js");
+const { PORT } = process.env;
 
 // Syncing all the models at once.
 conn.sync().then(() => {
-  server.listen(3001, () => {
+  server.listen(PORT, () => {
     getDiets;
-    console.log("%s listening at 3001"); // eslint-disable-line no-console
+    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
   });
 });
