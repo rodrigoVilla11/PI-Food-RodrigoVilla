@@ -49,6 +49,10 @@ const Home = () => {
     return Array.isArray(arr) && arr.every((item) => typeof item === 'object' && item !== null);
   };
 
+  const cleanFilters = e => {
+    dispatch(getRecipes())
+  }
+
   useEffect(() => {
     dispatch(getRecipes())
   }, [dispatch])
@@ -75,8 +79,10 @@ return(
             <option value="descendente">Descendente</option>
           </select></div>
         </div>
+        <button className={styles.buttonClean} onClick={e=>cleanFilters(e)}>Clean Filters</button>
         <div className={styles.textFilters}>Filter or Order</div>
         <div className={styles.arrowFilters}>→</div>
+        
       </div>
         <div className={styles.createRecipe}><Link to='/form'><button className={styles.createRecipeButton}>Create New Recipe</button></Link></div>
       <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>

@@ -55,7 +55,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredRecipes:
-          action.payload === "All" ? state.recipes : filteredCreatedByClient,
+          selectedDiet === "All" ? state.recipes : filteredCreatedByClient,
       };
     case ORDER_BY_NAME:
       let orderRecipesByName =

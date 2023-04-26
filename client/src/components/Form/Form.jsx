@@ -149,7 +149,7 @@ const Form = () =>{
 
     return(
         <div className={styles.body}>
-          <Link to='/home'><button className={styles.backHome}>Back to Home</button></Link>
+          {diets ? <><Link to='/home'><button className={styles.backHome}>Back to Home</button></Link>
           <div className={styles.titleDiv}><h1 className={styles.title}>Create your Recipe</h1></div>
           <form className={styles.form} onSubmit={e=>handleSubmit(e)}>
           <div className={styles.div}>
@@ -191,7 +191,7 @@ const Form = () =>{
          
           </form>
           <button type="submit" className={styles.buttonSubmit}>Create Recipe</button>
-        </div>
+          </> : <div>LOADING...</div>}</div>
     )
     }
     export default Form;

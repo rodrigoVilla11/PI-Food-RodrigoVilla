@@ -6,11 +6,11 @@ const FiltersCards = ({setCurrentPage}) =>{
   const dispatch = useDispatch()
 
 function handleFilterByDiets(e){
-  dispatch(filterRecipesByDiets(e.target.value))
+  dispatch(filterRecipesByDiets(e.target.options[e.target.selectedIndex].value))
   setCurrentPage(1)
 }
 function handleFilterByCreator(e){
-  dispatch(filterRecipesByCreator(e.target.value))
+  dispatch(filterRecipesByCreator(e.target.options[e.target.selectedIndex].value))
   setCurrentPage(1)
 }
     return(
