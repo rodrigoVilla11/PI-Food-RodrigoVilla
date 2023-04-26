@@ -31,7 +31,7 @@ const Paginated = ({recipesPerPage, recipes, currentPage, totalPages, setCurrent
                 <button className={styles.eachPaginated} onClick={()=>prevButton()}>←</button>
                 { pageNumbers && pageNumbers.map(number =>{ 
                     return <li key={number} style={{listStyle: 'none'} }>   
-                    <button /*style={{color: 'white'}}*/ className={styles.eachPaginated} onClick={()=> paginated(number)}>{number}</button>
+                    <button className={`${styles.eachPaginated} ${currentPage === number ? styles.selectedButton : ''}`} onClick={()=> paginated(number)}>{number}</button>
                     </li>
                 })}
                 <button className={styles.eachPaginated} onClick={() => nextButton()}>→</button>

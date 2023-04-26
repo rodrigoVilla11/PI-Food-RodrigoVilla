@@ -74,7 +74,11 @@ const Form = () =>{
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(!errors){
+    if(errors.diets || errors.healthScore || errors.image || errors.instructions || errors.summary || errors.title){
+      alert("You can't create a recipe with errors")
+      console.log(errors)
+    }
+    else{
       dispatch(postRecipe(input))
       alert('Recipe Created')
       setInput({
@@ -85,10 +89,8 @@ const Form = () =>{
         image: '',
         diets: []
         })}
-    else{
-      alert("You can't create a recipe with errors")
     }   
-  }
+  
   useEffect(() =>{
     dispatch(getDiets())
   }, [dispatch])
