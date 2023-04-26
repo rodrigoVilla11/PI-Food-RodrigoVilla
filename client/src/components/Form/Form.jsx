@@ -188,9 +188,9 @@ const Form = () =>{
           </div>
           <div  className={styles.div}> 
             <ul className={styles.listaDiets}><li>{input.diets.map(elem => elem + ",")}</li></ul></div>
-         
+            <button type="submit" className={styles.buttonSubmit}>Create Recipe</button>
           </form>
-          <button type="submit" className={styles.buttonSubmit}>Create Recipe</button>
+          
           </> : <div>LOADING...</div>}</div>
     )
     }
