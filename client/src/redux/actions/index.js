@@ -12,7 +12,7 @@ export const GET_EXAMPLES = "GET_EXAMPLES";
 
 export function getRecipes() {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/recipes");
+    const response = await axios.get("/recipes");
     return dispatch({
       type: GET_RECIPES,
       payload: response.data,
@@ -22,7 +22,7 @@ export function getRecipes() {
 
 export function getRecipesById(id) {
   return async function (dispatch) {
-    const response = await axios.get(`http://localhost:3001/recipes/${id}`);
+    const response = await axios.get(`/recipes/${id}`);
     return dispatch({
       type: GET_DETAIL,
       payload: response.data,
@@ -33,9 +33,7 @@ export function getRecipesById(id) {
 export function getRecipesByName(name) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/recipes?name=` + name
-      );
+      const response = await axios.get(`/recipes?name=` + name);
       return dispatch({
         type: GET_RECIPES_BY_NAME,
         payload: response.data,
