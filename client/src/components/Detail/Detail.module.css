@@ -59,6 +59,7 @@
   }
   .imgAndDetails{
     display:inline-flex;
+    margin-top: 60px;
   }
   .image {
     width: 30%;
@@ -82,11 +83,13 @@
   }
   
   .title {
-    display: inline-block;
+    position: absolute;
+    display: inline-flex;
     font-size: 1.25rem;
     line-height: 1.35rem;
     font-weight: 600;
     padding-bottom: 5px;
+    top: 0;
   }
   
   .description {
