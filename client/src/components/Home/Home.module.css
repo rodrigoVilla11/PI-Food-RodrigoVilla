@@ -94,7 +94,7 @@
     color:black;
     position: fixed ;
     width: 30px;
-    height: 350px;
+    height: 400px;
     margin-top: 150px;
     margin-left: -2px;
     display: flex;
@@ -103,12 +103,12 @@
 }
 .filterAndOrder:hover{
     cursor: pointer;
-    width: 150px;
+    width: 190px;
     justify-content: center;
     flex-direction: column;
 }
 .filterAndOrder:hover .textFilters{
-    margin-left: 150px;
+    margin-left: 160px;
 }
 .filterAndOrder:hover .arrowFilters{
     display: none;
@@ -183,8 +183,10 @@
    }
 .listDiets{
     list-style: none;
-    width: 100px;
+    display: block;
+    width: 150px;
     padding-left: 10px;
+    padding-right: 5px;
 }
 .selects{
     width: 130px;

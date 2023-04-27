@@ -74,7 +74,7 @@ const Form = () =>{
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(!input.title || input.summary || input.healthScore || input.instructions || input.image || input.diets || errors.diets || errors.healthScore || errors.image || errors.instructions || errors.summary || errors.title){
+    if(!input.title || !input.summary || !input.healthScore || !input.instructions || !input.image || !input.diets || errors.diets || errors.healthScore || errors.image || errors.instructions || errors.summary || errors.title){
       alert("You can't create a recipe with errors")
       console.log(errors)
     }
@@ -124,7 +124,10 @@ const Form = () =>{
     }// eslint-disable-next-line
     else if(!/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(image)){
       return 'Image must be a URL'
-    } else{
+    }else if(image.length > 255){
+      return "URL cannot have more than 255 characters "
+    } 
+    else{
       return ''
     }
   }
@@ -181,11 +184,13 @@ const Form = () =>{
           <div className={styles.errors}>{errors.image}</div>
           <div className={styles.div}>
           <div className={styles.labelDiv}><label htmlFor="diets">Diets: </label></div>
-          <div className={styles.inputDiv}><select className={styles.input} onChange={e=>handleDiets(e)}> 
+          <div className={styles.inputDiv}><select className={styles.input} onChange={e=>handleDiets(e)}>
+          <option selected disabled>Choose the diets</option> 
+          <optgroup label='Diets'>
               {diets.map((diet) =>(
                 <option value={diet.name} >{diet.name}</option>
               ))}
-            </select></div>
+            </optgroup></select></div>
             <button className={styles.button} onClick={e=>handleCleanDiets(e)}>Clean diets</button>
           </div>
           <div  className={styles.div}> 

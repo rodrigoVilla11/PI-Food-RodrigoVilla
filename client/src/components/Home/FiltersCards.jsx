@@ -45,10 +45,12 @@ useEffect(() =>{
           <div className={styles.selectsDiv}>
           <span> Filter by diets: </span>
           <select onChange={e => {handleFilterByDiets(e); handleDiets(e)}} className={styles.selects}>
+          <option selected disabled>Choose the diets</option>
+          <optgroup label='Diets'>
             {diets.map((diet) =>(
                 <option value={diet.name} >{diet.name}</option>
               ))}
-          </select></div>
+          </optgroup></select></div>
           <div > 
             <ul className={styles.listDiets}><li>{inputDiets.diets.map(elem => elem + ",")}</li></ul></div>
           <div className={styles.selectsDiv}>
