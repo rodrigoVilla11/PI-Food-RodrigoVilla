@@ -169,7 +169,8 @@
     border: none;
     background: #fff;
     font-family:'Times New Roman', Times, serif;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
     border: 2px solid transparent;
     border-bottom-color: #777;
 
@@ -180,6 +181,11 @@
     cursor: pointer;
     border-color: black;
    }
+.listDiets{
+    list-style: none;
+    width: 100px;
+    padding-left: 10px;
+}
 .selects{
     width: 130px;
     background-color: black;

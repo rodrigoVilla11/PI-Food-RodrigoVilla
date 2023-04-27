@@ -61,7 +61,7 @@ return(
       { recipes ?<>
       <SearchBar />
       <div className={styles.filterAndOrder}>
-      <FiltersCards setCurrentPage={setCurrentPage}/>
+      <FiltersCards setCurrentPage={setCurrentPage} recipes={recipes} cleanFilters={cleanFilters}/>
       <div className={styles.orderCards}>
         <div className={styles.selectsDiv}>
       <span> Order By Name: </span>
@@ -79,7 +79,7 @@ return(
             <option value="descendente">Descendente</option>
           </select></div>
         </div>
-        <button className={styles.buttonClean} onClick={e=>cleanFilters(e)}>Clean Filters</button>
+       
         <div className={styles.textFilters}>Filter or Order</div>
         <div className={styles.arrowFilters}>→</div>
         
