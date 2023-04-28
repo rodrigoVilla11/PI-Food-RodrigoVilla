@@ -37,6 +37,9 @@ const handleDiets = e => {
   })
 }
 
+
+console.log(diets);
+
 useEffect(() =>{
   dispatch(getDiets())
 }, [dispatch])

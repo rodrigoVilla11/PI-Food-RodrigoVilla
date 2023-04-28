@@ -13,8 +13,12 @@ const getDiets = async (req, res) => {
       if (el.vegetarian && !diet.includes("vegetarian"))
         diet.push("vegetarian");
     });
-    diet.forEach((el) => {
-      Diet.findOrCreate({ where: { name: el } });
+    const dietFilter = diet.filter((el, index, arr) => {
+      return index === arr.indexOf(el);
+    });
+    console.log(dietFilter);
+    dietFilter.forEach(async (el) => {
+      await Diet.findOrCreate({ where: { name: el } });
     });
     const allDiets = await Diet.findAll();
     res.status(200).send(allDiets);
