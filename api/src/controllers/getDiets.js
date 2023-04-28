@@ -18,7 +18,6 @@ const getDiets = async (req, res) => {
     diet.forEach((el) => {
       if (!diets.includes(el)) diets.push(el);
     });
-    console.log(diets);
     diets.forEach(async (el) => {
       await Diet.findOrCreate({ where: { name: el } });
     });
