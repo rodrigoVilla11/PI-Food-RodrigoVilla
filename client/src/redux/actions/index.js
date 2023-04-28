@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const GET_RECIPES = "GET_RECIPES";
 export const GET_DETAIL = "GET_DETAIL";
 export const FILTER_BY_DIET = "FILTER_BY_DIET";
