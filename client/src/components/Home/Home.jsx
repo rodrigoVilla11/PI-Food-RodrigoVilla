@@ -59,7 +59,7 @@ const Home = () => {
 return(
     <div className={styles.body}>
       { recipes ?<>
-      <SearchBar />
+      <SearchBar setCurrentPage={setCurrentPage}/>
       <div className={styles.filterAndOrder}>
       <FiltersCards setCurrentPage={setCurrentPage} recipes={recipes} cleanFilters={cleanFilters}/>
       <div className={styles.orderCards}>

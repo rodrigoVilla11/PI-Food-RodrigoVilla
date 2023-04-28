@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux'
 import {getRecipesByName} from '../../redux/actions'
 import styles from './Home.module.css'
 
-const SearchBar = () =>{
+const SearchBar = ({setCurrentPage}) =>{
     const dispatch = useDispatch()
     const [name, setName] = useState('')
 
@@ -17,6 +17,7 @@ const SearchBar = () =>{
         e.preventDefault()
         dispatch(getRecipesByName(name))
         setName('')
+        setCurrentPage(1)
     }
     return(
         <div className={styles.searchBar}>
