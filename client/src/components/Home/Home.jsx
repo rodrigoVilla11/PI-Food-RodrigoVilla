@@ -86,12 +86,13 @@ return(
       </div>
         <div className={styles.createRecipe}><Link to='/form'><button className={styles.createRecipeButton}>Create New Recipe</button></Link></div>
       <Paginated recipesPerPage={recipesPerPage} recipes={recipes.length} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-      <div className={styles.cards}>{currentRecipes.map(({id,title, image, diets})=> {
+      <div className={styles.cards}>{currentRecipes.map(({id,title, image, healthScore, diets})=> {
         return <Link key={id} to={`/detail/${id}`} style={{textDecoration: 'none', color: 'black'} }> 
         <div className={styles.card} >
         <div>
           <div className={styles.cardTitleDiv}><h2 className={styles.cardTitle}>{title}</h2></div>
           <div className={styles.cardImageDiv}> <img src={image} alt={title} className={styles.cardImage} /></div>
+          <div className={styles.cardHealthDiv}><h5>Health Score: {healthScore}</h5></div>
         <div className={styles.cardDietsDiv}><h5>Diets: {diets.length  ? isArrayOfObjects(diets) ? diets.map(el=>el.name + ' | ' ): diets.join(' | ') : 'There is no diets for this recipe'}</h5></div>
         </div>
         </div></Link>} )}</div>
