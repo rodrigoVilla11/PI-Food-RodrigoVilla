@@ -7,8 +7,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 import axios from "axios";
-require("dotenv").config();
-const { DEPLOY_BACK } = process.env;
+import dotenv from "dotenv";
+dotenv.config();
 
 axios.defaults.baseURL = DEPLOY_BACK;
 

@@ -7,17 +7,17 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Form from "./components/Form/Form";
 
 function App() {
-  return (
-    <>
-      <Nav path="/" element={<Nav />} />
-      <Routes>
-        <Route exact path="/" element={<LandingPage />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/form" element={<Form />} />
-      </Routes>
-    </>
-  );
+	return (
+		<>
+			<Nav path="/" element={<Nav />} />
+			<Routes>
+				<Route exact path="/" element={<LandingPage />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/detail/:id" element={<Detail />} />
+				<Route path="/form" element={<Form />} />
+			</Routes>
+		</>
+	);
 }
 
 export default App;
