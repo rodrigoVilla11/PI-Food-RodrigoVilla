@@ -1,7 +1,4 @@
 import axios from "axios";
-require("dotenv").config();
-const { DEPLOY_BACK } = process.env;
-
 export const GET_RECIPES = "GET_RECIPES";
 export const GET_DETAIL = "GET_DETAIL";
 export const FILTER_BY_DIET = "FILTER_BY_DIET";
@@ -14,7 +11,7 @@ export const GET_EXAMPLES = "GET_EXAMPLES";
 
 export function getRecipes() {
 	return async function (dispatch) {
-		const response = await axios.get(DEPLOY_BACK + "/recipes");
+		const response = await axios.get("/recipes");
 		return dispatch({
 			type: GET_RECIPES,
 			payload: response.data,
@@ -24,7 +21,7 @@ export function getRecipes() {
 
 export function getRecipesById(id) {
 	return async function (dispatch) {
-		const response = await axios.get(DEPLOY_BACK + `/recipes/${id}`);
+		const response = await axios.get(`/recipes/${id}`);
 		return dispatch({
 			type: GET_DETAIL,
 			payload: response.data,
@@ -35,7 +32,7 @@ export function getRecipesById(id) {
 export function getRecipesByName(name) {
 	return async function (dispatch) {
 		try {
-			const response = await axios.get(DEPLOY_BACK + `/recipes?name=` + name);
+			const response = await axios.get(`/recipes?name=` + name);
 			return dispatch({
 				type: GET_RECIPES_BY_NAME,
 				payload: response.data,
@@ -75,7 +72,7 @@ export function orderByHealtScore(payload) {
 
 export function getDiets() {
 	return async function (dispatch) {
-		const response = await axios.get(DEPLOY_BACK + "/diets");
+		const response = await axios.get("/diets");
 		return dispatch({
 			type: GET_DIETS,
 			payload: response.data,
@@ -85,14 +82,14 @@ export function getDiets() {
 
 export function postRecipe(payload) {
 	return async function (dispatch) {
-		const response = await axios.post(DEPLOY_BACK + "/recipes", payload);
+		const response = await axios.post("/recipes", payload);
 		return response;
 	};
 }
 
 export function getExamples() {
 	return async function (dispatch) {
-		const response = await axios.get(DEPLOY_BACK + "/examplesLandingPage");
+		const response = await axios.get("/examplesLandingPage");
 		return dispatch({
 			type: GET_EXAMPLES,
 			payload: response.data,

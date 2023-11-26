@@ -7,20 +7,20 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 import axios from "axios";
+require("dotenv").config();
+const { DEPLOY_BACK } = process.env;
 
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL =
-//   "https://pi-food-rodrigovilla-production.up.railway.app";
+axios.defaults.baseURL = DEPLOY_BACK;
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("root")
+	<Provider store={store}>
+		<BrowserRouter>
+			<React.StrictMode>
+				<App />
+			</React.StrictMode>
+		</BrowserRouter>
+	</Provider>,
+	document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
