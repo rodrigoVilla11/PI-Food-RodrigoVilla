@@ -6,10 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
+import "crypto";
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
-const DEPLOY_BACK = process.env.DEPLOY_BACK;
+
+const DEPLOY_BACK = "https://pi-food-back-edzn.onrender.com";
 
 axios.defaults.baseURL = DEPLOY_BACK;
 
