@@ -9,6 +9,7 @@ import store from "./redux/store";
 import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
+const { DEPLOY_BACK } = process.env;
 
 axios.defaults.baseURL = DEPLOY_BACK;
 
